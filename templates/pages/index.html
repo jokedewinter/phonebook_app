@@ -1,0 +1,12 @@
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
+    <section class="hero">
+        <h2>Search <span>the phone book</span></h2>
+        <h3 class="morse">.--. .... --- -. . -... --- --- -.-</h3>
+    </section>
+
+    <p class="btn_rectangle people"><a href="{{ url_for('people') }}">Find a person</a></p>
+    <p class="btn_rectangle business"><a href="{{ url_for('business') }}">Find a business</a></p>
+
+{% endblock %}

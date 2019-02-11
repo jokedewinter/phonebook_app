@@ -1,0 +1,48 @@
+
+<form id="sort_search" class="form_sorting" method="post" action="/{{ page }}#results">
+    <h4>Sort this table</h4>
+    <ul>
+        {% if page == 'business' %}
+            <li>
+                <input type="radio" id="sort_bizname" name="sorting" value="name">
+                <label for="sort_bizname">Business name</label>
+            </li>
+            <li>
+                <input type="radio" id="sort_biztype" name="sorting" value="type">
+                <label for="sort_biztype">Business type</label>
+            </li>
+
+        {% elif page == 'people' %}
+            <li>
+                <input type="radio" id="sort_first" name="sorting" value="first_name">
+                <label for="sort_first">First name</label>
+            </li>
+            <li>
+                <input type="radio" id="sort_last" name="sorting" value="last_name">
+                <label for="sort_last">Last name</label>
+            </li>
+
+        {% endif %}
+
+        <li>
+            <input type="radio" id="sort_town" name="sorting" value="town">
+            <label for="sort_town">Town</label>
+        </li>
+        <li>
+            <input type="radio" id="sort_region" name="sorting" value="region">
+            <label for="sort_region">Region</label>
+        </li>
+        <li>
+            <input type="radio" id="sort_distance" name="sorting" value="distance">
+            <label for="sort_distance">Distance</label>
+        </li>
+    </ul>
+
+    {% if page == 'business' %}
+        <input type="hidden" name="cat" value="{{ category }}">
+    {% endif %}
+    <input type="hidden" name="name" value="{{ name }}">
+    <input type="hidden" name="loc" value="{{ location }}">
+
+    <button type="submit" class="btn_circle" id="sort_submit" name="sort_submit">Go</button>
+</form>

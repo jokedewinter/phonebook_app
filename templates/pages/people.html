@@ -1,0 +1,26 @@
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
+	<section class="hero">
+	    <h2>Person <span>search</span></h2>
+	    <h3 class="morse">.--. . --- .--. .-.. .</h3>
+	</section>
+	
+    <section id="people">	
+        <form id="people_search" class="form_harvest" method="post" action="/people#results">
+            <label for="person_name">I am looking for</label>
+            <input type="text" id="person_name" name="person_name" placeholder="someone's surname">
+            <label for="person_location">in</label>
+            <input type="text" id="person_location" name="person_location" placeholder="some location">
+            <button type="submit" class="btn_circle" id="people_submit" name="people_submit" value="some">Go</button>
+			<button type="submit" class="btn_stuff" id="all_people" name="all_people" value="all">Just give me all the people</button>
+        </form>
+    </section>
+
+{% if sort_results %}
+    {{ sort_results }}
+{% endif %}
+
+{% include "layout/results.html" %}
+{% endblock %}
+

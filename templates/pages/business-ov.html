@@ -1,0 +1,69 @@
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
+    <section id="business">
+        <h2>Business <span>search</span></h2>
+        <form id="business_search" method="post" action="/business">
+            <a href="#business_type" id="business_type" class="reveal__link">By business type</a>
+            <fieldset class="reveal__inside">
+                <legend>
+                    {% if types %}
+                        <ul>
+                            {% for type in types %}
+                                <li>{{ type }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+               </legend>
+                <label for="biz_type">I am looking for businesses in</label>
+                <input type="text" id="biz_type" name="biz_type" placeholder="business category">
+            </fieldset>
+
+            <a href="#business_name" id="business_name" class="reveal__link">By business name</a>
+            <fieldset class="reveal__inside">
+                <label for="biz_name">I am looking for</label>
+                <input type="text" id="biz_name" name="biz_name" placeholder="a business name">
+            </fieldset>
+
+            <label for="biz_location">located in</label>
+            <input type="text" id="biz_location" name="biz_location" placeholder="some location">
+
+            <button type="submit" id="biz_submit" name="biz_submit">Go</button>
+        </form>
+    </section>
+
+    <section id="results">
+        {% if results %}
+            <h3>Found {{ results_amount }} result{{ plural }} for {{ category }}{% if location %} near {{ location }}{% endif %}</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Business name</th>
+                        <th>Street</th>
+                        <th>Town/City</th>
+                        <th>Postcode</th>
+                        <th>Phone</th>
+                        <th>Distance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in results %}
+                        <tr>
+                            <td>{{ item['name'] }}</td>
+                            <td>{{ item['address_1'] }}</td>
+                            <td>{{ item['address_2'] }}</td>
+                            <td>{{ item['postcode'] }}</td>
+                            <td>{{ item['telephone'] }}</td>
+                            <td>{{ item['distance'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+		{% elif not fresh %}
+		    <p>Found absolutely bugger all.</p>
+		{% endif %}
+    </section>
+
+{% endblock %}

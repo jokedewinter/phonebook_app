@@ -1,0 +1,383 @@
+
+/**
+ * -------------------------------------------------------------
+ * Site settings
+ * ------------------------------------------------------------- */
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+}
+
+html { font-size: 62.5%; }
+
+body {
+    width: 90%;
+    margin: 2em auto;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+	background-color: #f8f7f0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+/* Typography
+ * ------------------------------------------------------------- */
+
+h2 {
+	font-size: 50px;
+    line-height: 1;
+    float: left;
+}
+
+@media screen and ( min-width: 600px ) {
+    h2 {
+        font-size: 100px;
+    }
+}
+
+h2 span { display: block; }
+h2 + * { clear: both; }
+
+h3 { font-size: 30px; }
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+small {
+    display: block;
+    font-weight: 400;
+}
+
+
+/* Buttons
+ * ------------------------------------------------------------- */
+
+.btn_circle {
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-right: 1em;
+	border-radius: 50%;
+	border: none;
+	color: #fff;
+}
+
+.form_harvest .btn_circle {
+	font-size: 28px;
+    padding: 0.5em;
+	width: 80px;
+	height: 80px;
+}
+
+.form_sorting .btn_circle {
+	font-size: 16px;
+    padding: 0.5em;
+	width: 40px;
+	height: 40px;
+}
+
+.btn_rectangle {
+	display: inline-block;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	padding: 0.5em 1.5em;
+	margin: 0 1em 1em 0;
+}
+
+.btn_rectangle a { color: #fff; }
+
+.btn_stuff {
+	font-weight: bold;
+	font-size: 16px;
+	padding: 0;
+}
+
+
+/* Header
+ * ------------------------------------------------------------- */
+
+header h1 {
+	font-size: 17px;
+	float: left;
+	text-transform: uppercase;
+	font-family: Tahoma;
+	letter-spacing: 1px;
+}
+
+header + * { clear: both; }
+
+
+/* Navigation
+ * ------------------------------------------------------------- */
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+    clear: left;
+}
+
+nav li {
+	display: inline-block;
+    margin: 0 2em 0 0;
+}
+
+nav li:before { content: "\200B"; }
+
+nav a {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+
+@media screen and ( min-width: 600px ) {
+    nav ul {
+        clear: none;
+        float: right;
+    }
+
+    nav li { margin: 0 0 0 2em; }
+}
+
+/* Hero + Morse code
+ * ------------------------------------------------------------- */
+
+.hero { width: 100%; }
+.hero span { display: block; }
+
+.morse {
+	font-size: 35px;
+	font-family: georgia;	
+	font-weight: bold;
+	text-align: right;
+	margin: 0 0 1em 0;
+	color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and ( min-width: 600px ) {
+
+	.hero h2 { margin: 1em 0 0 0; }
+
+
+	.morse {
+        font-size: 70px;
+    }
+}
+
+/* Custom colours
+ * ------------------------------------------------------------- */
+
+.index h2 { color: #E26D32; }
+.index .btn_circle { background-color: #E26D32; }
+
+.business h2,
+.business #results h3 span { color: #D1377A; }
+.business .btn_circle, .btn_rectangle.business { background-color: #D1377A; }
+
+
+.people h2,
+.people #results h3 span { color: #92B353; }
+.people .btn_circle, .btn_rectangle.people { background-color: #92B353; }
+
+
+/**
+ * -------------------------------------------------------------
+ * Reveal on click
+ * ------------------------------------------------------------- */
+
+.reveal__link {
+	padding: 0.5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+.reveal__inside,
+.reveal__inside:target ~ .default,
+#business_name:target + fieldset {
+	height: 0;
+	overflow: hidden;
+}
+
+.default,
+.reveal__inside.hidden:target { height: auto; }
+
+
+fieldset.location { margin-top: -0.8em; margin-top: -1.2em; }
+.reveal__inside.default:target + fieldset.location { margin-top: -1.2em; }
+
+/* Form element reset
+ * ------------------------------------------------------------- */
+
+button, input[type="text"], textarea, fieldset, legend {
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+fieldset, legend, select {
+	margin: 0;
+	padding: 0;
+}
+
+button { cursor: pointer; }
+
+/* Form
+ * ------------------------------------------------------------- */
+
+form { margin-bottom: 2em; }
+form p:first-of-type { margin-top: -2em; }
+form ul { list-style-type: none; }
+
+legend { width: 100%; }
+
+legend ul {
+	column-count: auto;
+	column-width: 8rem;
+}
+
+input[type="text"] {
+    font-size: 18px;
+    margin: 0.5em;
+	border: 1px solid #ccc;
+	padding: 0.5em;
+}
+
+input[type="radio"] {
+	border-radius: 50%;
+	border: 1px solid #ccc;
+}
+
+input:placeholder { font-style: italic; }
+
+select {
+	width: 150px;
+	height: 2.1em;
+	margin: 0 0.5em;	
+	-webkit-appearance: menulist;
+    font-size: 18px;
+	border-color: #ccc;
+}
+
+fieldset {
+	display: inline-block;
+	float: left;
+	margin-right: 1em;
+}
+
+.form_harvest label { font-size: 20px; }
+
+.form_harvest ul {
+	column-count: auto;
+    column-width: 10em;
+}
+
+.form_sorting {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.form_sorting h4,
+.form_sorting ul { margin: 0; }
+
+.form_sorting ul li {	
+	display: inline;
+	margin-right: 2em;
+}
+
+.form_sorting label { font-size: 16px; }
+
+
+@media screen and ( min-width: 600px ) {
+
+	label { font-size: 28px; }
+}
+
+
+/* Results + table
+ * ------------------------------------------------------------- */
+
+#results { clear: both; }
+
+#results h3 {
+	margin-top: 2em;
+	padding-top: 1em;
+	border-top: 1px solid #ccc;
+}
+
+table {
+	width: 100%;
+	margin: 0 0 1.5em 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-width: 1px 0 0 1px;
+	border-bottom: 1px solid #ccc;
+}
+
+th,
+td {
+	clear: both;
+	font-weight: normal;
+	padding: 0.5em 16px;
+}
+
+th {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+td { border-top: 1px solid #ccc; }
+
+/*
+An effort to make a table responsive.
+Need to exclude the calendar widget from this because otherwise it will end up looking terrible
+*/
+@media screen and ( max-width: 599px ) {
+	th,
+	td {
+		width: 100%;
+		display: block;
+	}
+
+	td { border-top: none; }
+
+	tr {
+		float: left;
+		width: 100%;
+		display: block;
+		border-bottom: 3px solid #ccc;
+	}
+}
+
+
+/* Footer
+ * ------------------------------------------------------------- */
+
+footer {
+	margin-top: 5em;
+	padding-top: 1em;
+	border-top: 1px solid #ccc;
+}
+
+footer p { font-size: 14px; }

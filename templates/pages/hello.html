@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Target</title>
+	<style>
+		a {
+			display: block;
+			text-decoration: none;
+			padding: 1em;
+		/*	border-bottom: 3px solid #ccc;*/
+		}
+		
+		section {
+			/* Hide the content to be revealed until the link has been clicked. */
+			height: 0;
+			overflow: hidden;
+		}
+		
+		/*
+		:target is the selector to use for the currently active target element.
+		That's the element a user has clicked.
+		*/
+		
+		/*.reveal__link:target + .reveal__inside {*/
+		section:target {
+			/*
+			When a link is clicked it's a target.
+			Show the content that needs to be revealed
+			*/
+			height: auto;
+			background: red;
+		}
+		
+		/*.reveal__link:target {*/
+		a:target {
+			/* Remove the border from the link when the link has been clicked */
+			border-bottom: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<a href="#one">One</a>
+	<a href="#two">Two</a>
+	
+	<section id="one">
+		<p>This is section one</p>
+	</section>
+
+	<section id="two">
+		<p>This is section two</p>
+	</section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
+	<section class="hero">
+	    <h2>Business <span>search</span></h2>
+	    <h3 class="morse">-... ..- ... .. -. . ... ...</h3>
+	</section>
+
+    <section id="business">
+        <form id="business_search" class="form_harvest" method="post" action="/business#results">
+            <p>By <a href="#business_type" class="reveal__link">business type</a> / 
+			<a href="#business_name" class="reveal__link reveal_name">business name</a></p>
+			
+
+            <fieldset id="business_name" class="reveal__inside hidden">
+                <label for="biz_name">I am looking for</label>
+                <input type="text" id="biz_name" name="biz_name" placeholder="a business name">
+            </fieldset>
+
+             <fieldset id="business_type" class="reveal__inside default">
+				<label for="biz_type">I am looking for
+					<select id="biz_type" name="biz_type">
+					{% if types %}
+						<option>Business Type</option>
+				        {% for type in types %}
+				            <option>{{ type }}</option>
+				        {% endfor %}
+					{% endif %}
+				</select> businesses</label>
+            </fieldset>
+
+           <fieldset id="business_location" class="location">
+                <label for="biz_location">located in</label>
+                <input type="text" id="biz_location" name="biz_location" placeholder="some location">
+                <button type="submit" class="btn_circle" id="biz_submit" name="biz_submit" value="some">Go</button>
+           </fieldset>
+
+			<button type="submit" class="btn_stuff" id="all_businesses" name="all_businesses" value="all">Just give me all the businesses</button>
+        </form>
+    </section>
+
+{% include "layout/results.html" %}
+{% endblock %}
+
+
+
+
